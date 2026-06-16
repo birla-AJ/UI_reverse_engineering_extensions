@@ -1,0 +1,264 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 380px;
+  min-height: 600px;
+
+  color: #fff;
+
+  font-family: Inter, sans-serif;
+
+  background: linear-gradient(135deg, #020617, #0f172a, #111827);
+
+  overflow-x: hidden;
+}
+
+.container {
+  padding: 18px;
+
+  background: rgba(8, 15, 35, 0.95);
+
+  backdrop-filter: blur(30px);
+}
+
+/* ---------- HEADER ---------- */
+
+.header {
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  margin-bottom: 18px;
+}
+
+.logo {
+  width: 58px;
+
+  height: 58px;
+
+  border-radius: 18px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-size: 28px;
+
+  background: linear-gradient(135deg, #2563eb, #9333ea);
+
+  box-shadow: 0 10px 30px rgba(37, 99, 235, 0.35);
+}
+
+.title {
+  font-size: 22px;
+
+  font-weight: 700;
+
+  line-height: 1.1;
+}
+
+.subtitle {
+  font-size: 13px;
+
+  color: #94a3b8;
+
+  margin-top: 4px;
+}
+
+/* ---------- TABS ---------- */
+
+.tabs {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 10px;
+
+  margin-bottom: 14px;
+}
+
+.tab {
+  border: none;
+
+  border-radius: 14px;
+
+  padding: 12px;
+
+  cursor: pointer;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  color: #fff;
+
+  background: rgba(255, 255, 255, 0.06);
+
+  backdrop-filter: blur(20px);
+
+  transition: 0.25s;
+}
+
+.tab:hover {
+  transform: translateY(-2px);
+}
+
+.tab.active {
+  background: linear-gradient(135deg, #2563eb, #9333ea);
+}
+
+/* ---------- STATUS ---------- */
+
+.status {
+  margin-bottom: 16px;
+
+  padding: 12px;
+
+  border-radius: 14px;
+
+  text-align: center;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  color: #cbd5e1;
+
+  background: rgba(255, 255, 255, 0.06);
+
+  backdrop-filter: blur(20px);
+}
+
+/* ---------- CONTENT ---------- */
+
+.content {
+  min-height: 220px;
+}
+
+/* ---------- DASHBOARD ---------- */
+
+.statsGrid {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 12px;
+}
+
+.statCard {
+  padding: 16px;
+
+  border-radius: 18px;
+
+  background: rgba(255, 255, 255, 0.06);
+
+  backdrop-filter: blur(20px);
+
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.statCard span {
+  font-size: 12px;
+
+  color: #94a3b8;
+}
+
+.statCard h2 {
+  margin-top: 10px;
+
+  font-size: 28px;
+}
+
+/* ---------- GENERIC CARD ---------- */
+
+.card {
+  padding: 18px;
+
+  border-radius: 18px;
+
+  margin-bottom: 12px;
+
+  background: rgba(255, 255, 255, 0.06);
+
+  border: 1px solid rgba(255, 255, 255, 0.05);
+
+  backdrop-filter: blur(20px);
+}
+
+/* ---------- BUTTONS ---------- */
+
+.buttons {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 12px;
+
+  margin-top: 18px;
+}
+
+.primary,
+.secondary {
+  width: 100%;
+
+  border: none;
+
+  cursor: pointer;
+
+  border-radius: 18px;
+
+  padding: 14px;
+
+  font-size: 16px;
+
+  font-weight: 700;
+
+  transition: 0.25s;
+}
+
+.primary {
+  color: #fff;
+
+  background: linear-gradient(135deg, #2563eb, #9333ea);
+}
+
+.secondary {
+  color: #fff;
+
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.primary:hover,
+.secondary:hover {
+  transform: translateY(-2px);
+}
+
+button:disabled {
+  opacity: 0.4;
+
+  cursor: not-allowed;
+
+  transform: none;
+}
+
+/* ---------- FOOTER ---------- */
+
+.footer {
+  margin-top: 18px;
+
+  text-align: center;
+
+  font-size: 12px;
+
+  color: #94a3b8;
+
+  opacity: 0.7;
+}

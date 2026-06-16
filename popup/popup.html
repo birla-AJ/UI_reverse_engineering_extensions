@@ -1,0 +1,63 @@
+<!doctype html>
+
+<html>
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>UI Reverse Engineer</title>
+
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="header">
+        <div class="logo">⚡</div>
+
+        <div>
+          <div class="title">UI Reverse Engineer</div>
+
+          <div class="subtitle">AI Website Analysis</div>
+        </div>
+      </div>
+
+      <div class="tabs">
+        <button class="tab active" data-tab="dashboard">Dashboard</button>
+
+        <button class="tab" data-tab="exports">Exports</button>
+
+        <button class="tab" data-tab="design">Design</button>
+
+        <button class="tab" data-tab="settings">Settings</button>
+      </div>
+
+      <div id="status" class="status">Ready</div>
+
+      <div id="tabContent" class="content"></div>
+
+      <div class="buttons">
+        <button id="analyze" class="primary">Analyze</button>
+
+        <button id="export" class="secondary" disabled>Export</button>
+      </div>
+
+      <div class="footer">
+        <div>UI Reverse Engineer</div>
+
+        <div>v3.0.0</div>
+      </div>
+
+      <script src="tabs/dashboard.js"></script>
+
+      <script src="tabs/exports.js"></script>
+
+      <script src="tabs/design.js"></script>
+
+      <script src="tabs/settings.js"></script>
+
+      <script src="popup.js"></script>
+    </div>
+  </body>
+</html>
