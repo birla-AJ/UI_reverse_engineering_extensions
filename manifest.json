@@ -1,22 +1,48 @@
 {
   "manifest_version": 3,
   "name": "UI Reverse Engineer Pro",
-  "version": "2.5.0",
+  "version": "3.1.0",
   "description": "Frontend UI Reverse Engineer",
-  "permissions": ["activeTab", "downloads", "tabs", "storage"],
-  "host_permissions": ["<all_urls>"],
+  "icons": {
+    "16": "release/icons/16.png",
+    "24": "release/icons/24.png",
+    "32": "release/icons/32.png",
+    "64": "release/icons/64.png",
+    "128": "release/icons/128.png"
+  },
+  "permissions": [
+    "activeTab",
+    "downloads",
+    "tabs",
+    "storage",
+    "unlimitedStorage"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
   "action": {
+    "default_icon": {
+      "16": "release/icons/16.png",
+      "24": "release/icons/24.png",
+      "32": "release/icons/32.png",
+      "64": "release/icons/64.png",
+      "128": "release/icons/128.png"
+    },
     "default_popup": "popup/popup.html"
   },
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
+      "matches": [
+        "<all_urls>"
+      ],
       "js": [
         "vendor/jszip.min.js",
+        "engine/utils/errorHandler.js",
+        "engine/analysis/detector.js",
         "engine/utils/logger.js",
         "engine/utils/errorHandler.js",
+        "engine/utils/siteGuard.js",
         "engine/utils/performanceMonitor.js",
-        "engine/analysis/detector.js",
         "engine/analysis/hoverDetector.js",
         "engine/analysis/scrollDetector.js",
         "engine/capture/domCapture.js",
@@ -34,6 +60,8 @@
         "engine/reconstruction/domCleaner.js",
         "engine/reconstruction/layoutNormalizer.js",
         "engine/reconstruction/responsiveGenerator.js",
+        "engine/reconstruction/fontNormalizer.js",
+        "engine/reconstruction/buttonNormalizer.js",
         "engine/reconstruction/reconstructor.js",
         "engine/reconstruction/replayGenerator.js",
         "engine/reconstruction/sourceGenerator.js",
@@ -52,6 +80,7 @@
         "engine/project/fileDownloader.js",
         "engine/project/zipExporter.js",
         "engine/project/exporter.js",
+        "engine/project/multiPageSession.js",
         "engine/project/summaryGenerator.js",
         "engine/project/projectGenerator.js",
         "engine/reconstruction/componentGenerator.js",

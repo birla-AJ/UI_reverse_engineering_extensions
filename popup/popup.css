@@ -137,10 +137,52 @@ body {
   backdrop-filter: blur(20px);
 }
 
+.progressTrack {
+  height: 7px;
+
+  margin-top: 10px;
+
+  border-radius: 999px;
+
+  overflow: hidden;
+
+  background: rgba(148, 163, 184, 0.18);
+}
+
+.progressBar {
+  width: 0%;
+
+  height: 100%;
+
+  border-radius: inherit;
+
+  background: linear-gradient(90deg, #22d3ee, #2563eb, #9333ea);
+
+  transition: width 0.35s ease;
+}
+
 /* ---------- CONTENT ---------- */
 
 .content {
   min-height: 220px;
+}
+
+.analysisWarning {
+  margin-top: 14px;
+
+  padding: 12px;
+
+  border: 1px solid rgba(245, 158, 11, 0.35);
+
+  border-radius: 14px;
+
+  color: #fde68a;
+
+  background: rgba(245, 158, 11, 0.12);
+
+  font-size: 13px;
+
+  line-height: 1.4;
 }
 
 /* ---------- DASHBOARD ---------- */
@@ -206,7 +248,8 @@ body {
 }
 
 .primary,
-.secondary {
+.secondary,
+.aiButton {
   width: 100%;
 
   border: none;
@@ -230,14 +273,32 @@ body {
   background: linear-gradient(135deg, #2563eb, #9333ea);
 }
 
-.secondary {
+.secondary,
+.aiButton {
   color: #fff;
 
   background: rgba(255, 255, 255, 0.08);
 }
 
+.secondary.ready {
+  background: linear-gradient(135deg, #0891b2, #2563eb);
+
+  box-shadow: 0 10px 24px rgba(37, 99, 235, 0.28);
+}
+
+.aiButton {
+  grid-column: 1 / -1;
+}
+
+.aiButton.ready {
+  background: linear-gradient(135deg, #14b8a6, #8b5cf6);
+
+  box-shadow: 0 10px 24px rgba(139, 92, 246, 0.28);
+}
+
 .primary:hover,
-.secondary:hover {
+.secondary:hover,
+.aiButton:hover {
   transform: translateY(-2px);
 }
 
@@ -247,6 +308,157 @@ button:disabled {
   cursor: not-allowed;
 
   transform: none;
+}
+
+/* ---------- MULTI-PAGE SESSION ---------- */
+
+.sessionPanel {
+  margin-top: 14px;
+
+  padding: 14px;
+
+  border-radius: 16px;
+
+  border: 1px solid rgba(34, 211, 238, 0.28);
+
+  background: rgba(34, 211, 238, 0.08);
+}
+
+.sessionInfo {
+  font-size: 13px;
+
+  line-height: 1.45;
+
+  color: #cffafe;
+
+  margin-bottom: 12px;
+}
+
+.sessionActions {
+  display: grid;
+
+  grid-template-columns: 2fr 1fr;
+
+  gap: 10px;
+}
+
+.sessionActions .primary,
+.sessionActions .secondary {
+  padding: 12px;
+
+  font-size: 14px;
+
+  border-radius: 14px;
+}
+
+.aiPromptPanel {
+  margin-top: 16px;
+
+  padding: 14px;
+
+  border-radius: 18px;
+
+  background: rgba(255, 255, 255, 0.07);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.panelHeader {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 12px;
+
+  margin-bottom: 12px;
+}
+
+.panelTitle {
+  font-size: 16px;
+
+  font-weight: 800;
+}
+
+.panelSubtitle {
+  margin-top: 3px;
+
+  color: #94a3b8;
+
+  font-size: 12px;
+}
+
+.iconButton {
+  width: 32px;
+
+  height: 32px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  color: #cbd5e1;
+
+  cursor: pointer;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  font-size: 22px;
+
+  line-height: 1;
+}
+
+.techSelect,
+.promptOutput,
+.copyPrompt {
+  width: 100%;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  border-radius: 14px;
+
+  color: #fff;
+
+  background: rgba(15, 23, 42, 0.95);
+
+  font-family: Inter, sans-serif;
+}
+
+.techSelect {
+  padding: 11px 12px;
+
+  margin-bottom: 12px;
+
+  font-weight: 700;
+}
+
+.promptOutput {
+  min-height: 220px;
+
+  resize: vertical;
+
+  padding: 12px;
+
+  color: #dbeafe;
+
+  font-size: 12px;
+
+  line-height: 1.45;
+}
+
+.copyPrompt {
+  margin-top: 12px;
+
+  padding: 12px;
+
+  cursor: pointer;
+
+  font-size: 14px;
+
+  font-weight: 800;
+
+  background: linear-gradient(135deg, #2563eb, #9333ea);
 }
 
 /* ---------- FOOTER ---------- */

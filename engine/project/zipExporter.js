@@ -15,12 +15,15 @@ async function buildZip(project) {
   zip.file("manifest/project-manifest.json", project.export.projectManifest);
   zip.file("ai/ai-index.html", project.export.aiHtml);
   zip.file("ai/ai-styles.css", project.export.aiCss);
+  zip.file("ai/build-prompts.md", project.export.aiBuildPromptsMd || "");
+  addReferenceScreenshot(zip, project);
   const src = zip.folder("src");
   src.file("app.js", project.export.appJs || "");
   src.file("app.css", project.export.appCss || "");
   if (project.downloadedAssets) {
     addImages(zip, project);
     addVideos(zip, project);
+    addFonts(zip, project);
   }
   const blob = await zip.generateAsync({
     type: "blob",
@@ -47,5 +50,54 @@ function addVideos(zip, project) {
     if (file.filename && file.blob) {
       zip.file("assets/videos/" + file.filename, file.blob);
     }
+  }
+}
+
+function addFonts(zip, project) {
+  for (const file of project.downloadedAssets.fonts || []) {
+    if (file.filename && file.blob) {
+      zip.file("assets/fonts/" + file.filename, file.blob);
+    }
+  }
+}
+
+function addReferenceScreenshot(zip, project) {
+  if (!project.referenceScreenshot?.dataUrl) {
+    return;
+  }
+
+  const blob = dataUrlToBlob(project.referenceScreenshot.dataUrl);
+  if (blob) {
+    zip.file("reference/viewport.png", blob);
+    zip.file(
+      "reference/metadata.json",
+      JSON.stringify(
+        {
+          title: project.referenceScreenshot.title || "",
+          url: project.referenceScreenshot.url || "",
+          capturedAt: project.referenceScreenshot.capturedAt || "",
+          viewport: project.dom?.viewport || {},
+        },
+        null,
+        2,
+      ),
+    );
+  }
+}
+
+function dataUrlToBlob(dataUrl) {
+  try {
+    const [header, data] = dataUrl.split(",");
+    const mime = header.match(/data:([^;]+)/)?.[1] || "image/png";
+    const binary = atob(data);
+    const bytes = new Uint8Array(binary.length);
+    for (let index = 0; index < binary.length; index++) {
+      bytes[index] = binary.charCodeAt(index);
+    }
+    return new Blob([bytes], {
+      type: mime,
+    });
+  } catch (error) {
+    return null;
   }
 }

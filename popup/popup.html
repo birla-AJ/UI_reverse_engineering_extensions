@@ -33,20 +33,68 @@
         <button class="tab" data-tab="settings">Settings</button>
       </div>
 
-      <div id="status" class="status">Ready</div>
+      <div id="status" class="status">
+        <div id="statusLabel">Ready</div>
+
+        <div id="progressTrack" class="progressTrack" hidden>
+          <div id="progressBar" class="progressBar"></div>
+        </div>
+      </div>
 
       <div id="tabContent" class="content"></div>
+
+      <div id="analysisWarning" class="analysisWarning" hidden></div>
 
       <div class="buttons">
         <button id="analyze" class="primary">Analyze</button>
 
-        <button id="export" class="secondary" disabled>Export</button>
+        <button id="export" class="secondary" disabled>Add Page</button>
+
+        <button id="aiPrompt" class="aiButton" disabled>AI Prompt</button>
+      </div>
+
+      <div id="sessionPanel" class="sessionPanel" hidden>
+        <div id="sessionInfo" class="sessionInfo"></div>
+
+        <div class="sessionActions">
+          <button id="finishExport" class="primary">Finish &amp; Download ZIP</button>
+
+          <button id="resetSession" class="secondary">Reset</button>
+        </div>
+      </div>
+
+      <div id="aiPromptPanel" class="aiPromptPanel" hidden>
+        <div class="panelHeader">
+          <div>
+            <div class="panelTitle">AI Build Prompt</div>
+
+            <div class="panelSubtitle">Choose target technology</div>
+          </div>
+
+          <button id="closeAiPrompt" class="iconButton" type="button">×</button>
+        </div>
+
+        <select id="techSelect" class="techSelect">
+          <option value="react">React + Vite</option>
+
+          <option value="next">Next.js</option>
+
+          <option value="angular">Angular</option>
+
+          <option value="vue">Vue + Vite</option>
+
+          <option value="html">HTML/CSS/JS</option>
+        </select>
+
+        <textarea id="promptOutput" class="promptOutput" readonly></textarea>
+
+        <button id="copyPrompt" class="copyPrompt" type="button">Copy Prompt</button>
       </div>
 
       <div class="footer">
         <div>UI Reverse Engineer</div>
 
-        <div>v3.0.0</div>
+        <div id="appVersion">v3.1.0</div>
       </div>
 
       <script src="tabs/dashboard.js"></script>
